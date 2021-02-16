@@ -20,6 +20,21 @@ def hello_world():
         snippets=article_data['snippets'],
     )
 
+
+
+@app.route('/search/<user_text>')
+def show_user_text(user_text):
+    article_data = get_article_data(user_text)
+    headliness=article_data['headlines']
+    snippetss=article_data['snippets']
+
+
+    #return {'userText': user_text}
+    return {
+        'headlines': headliness, # headlines is an array of strings, see how we got this array in our other route!
+        'snippets': snippetss
+    }
+    
 app.run(
     host=os.getenv('IP', '0.0.0.0'),
     port=int(os.getenv('PORT', 8080)),

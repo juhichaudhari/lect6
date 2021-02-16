@@ -3,11 +3,14 @@
 
 <head>
     <link rel="stylesheet" href={{ url_for( 'static', filename='style.css' ) }} />
+    <script type="text/javascript" src="/static/script.js"></script>
 </head>
 
 <body>
-    <h1>What's being reported about {{ topic }}?</h1>
-    <div class='container'>
+    <h1>What's being reported about <span id="topic"> {{ topic }}?</span></h1>
+    <input type="text" id="userInput"/>
+    <button id="myCoolButton">Click here!</button> 
+    <div class='container' id="new">
         {% for i in range(10) %}
         <div class='item'>
             <p><b>{{ headlines[i] }}</b></p>
